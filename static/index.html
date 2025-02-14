@@ -12,13 +12,63 @@
     <link rel="stylesheet" href="/assets/css/nav.css?v=01" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840529569014734"
      crossorigin="anonymous"></script>
+     
+    <style>
+        .overlay {
+            position: absolute;
+            top: -100vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: 80%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            transition: top 2s ease, opacity 2s ease;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            height: auto;
+            opacity: 0;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        .overlay.show {
+            top: 5%;
+            opacity: 1;
+        }
+
+        .overlay p {
+            cursor: default;
+            margin: 0;
+            font-size: 25px;
+        }
+
+        .overlay a {
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 25px;
+            color: #a6c8ff;
+        }
+
+        .overlay a:hover {
+            color: #a6c8ff;
+        }
+    </style>
   </head>
   <body class="center" onload="SplashT">
     <div class="f-nav"></div>
     <div id="particles-js">
       <script rel="preload" src="https://cdn.jsdelivr.net/particles.js/2.0.0/"></script>
       <div class="main">
-<h1 class="title">&#73;&#110;&#116;&#101;&#114;&#115;&#116;&#101;&#108;&#108;&#97;&#114;</h1>
+        <h1 class="title">&#73;&#110;&#116;&#101;&#114;&#115;&#116;&#101;&#108;&#108;&#97;&#114;</h1>
         <p id="splash"></p>
         <div class="search-container">
           <form id="fv" method="POST">
@@ -31,6 +81,34 @@
         </div>
       </div>
     </div>
+    
+    <div class="overlay" id="overlay">
+        <p>If you like this, please consider using my main website for even more stuff 
+            <a href="https://johnhomn.onrender.com/#" target="_blank">Click Here</a>.
+        </p>
+    </div>
+    
+    <script>
+        function hideOverlay() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.top = '-100vh';
+            overlay.style.opacity = '0';
+
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 2000);
+        }
+
+        window.onload = function() {
+            const overlay = document.getElementById('overlay');
+            overlay.classList.add('show');
+
+            setTimeout(() => {
+                hideOverlay();
+            }, 10000);
+        };
+    </script>
+    
     <script src="assets/js/i.js?v=03"></script>
     <script src="/assets/js/home.js?v=00"></script>
     <script src="./assets/ultra/bundle.js?v=10-02-2024"></script>
